@@ -3,14 +3,14 @@
 {{#each recipes}}
     <hr>
     <div>
-        <a href="/recipe/{{this._id}}">
+        <a href="/recipes/{{this._id}}">
             <h2>
                 <li>
                     {{this.recipeName}}
                 </li>
             </h2>
         </a>
-        <h5>Type: {{this.recipeType}}</h5>
+        <h5>Recipe Type: {{this.recipeType}}</h5>
     </div>
     <hr>
 {{/each}}

@@ -1,14 +1,14 @@
-<h1>Edit This Recipe</h1>
+<h1>Edit This Food Recipe</h1>
 
-<form action="/recipe/{{theRecipe._id}}/update" method="POST">
+<form action="/recipes/{{theRecipe._id}}/update" method="POST">
 
 <div>
-    Name: 
+    Recipe Name: 
     <input type="text" name="recipeName" value="{{theRecipe.recipeName}}">
 </div>
 
 <div>
-    Type: 
+    Recipe Type: 
     <input type="text" name="recipeType" value="{{theRecipe.recipeType}}">
 </div>
 
@@ -19,13 +19,13 @@
 
 <div>
     Chef: 
-    <select name="theChef">
+    <select name="chef">
         {{#each chefs}}
-            {{#if this._id === theRecipe.chef._id}}
+            {{#ifEquals this._id theRecipe.chef}}
                 <option value="{{this._id}}" selected>{{this.name}}</option>
             {{else}}
                 <option value="{{this._id}}">{{this.name}}</option>
-            {{/if}}
+            {{/ifEquals}}
         {{/each}}
     </select>
 </div>
