@@ -1,0 +1,48 @@
+<h1>Add a Recipe to the Database</h1>
+
+<form action="/recipe/create" method="POST">
+
+<div>
+    Name: 
+    <input type="text" name="recipeName">
+</div>
+
+<div>
+    Type: 
+    <input type="text" name="recipeType">
+</div>
+
+<div>
+    Image: 
+    <input type="text" name="img">
+</div>
+
+<div>
+    Serves: 
+    <input type="text" name="serves">
+</div>
+
+<div>
+    Ingredients: 
+    <input type="text" name="ingredients">
+    <input type="text" name="ingredients">
+</div>
+
+<div>
+    Instructions: 
+    <textarea name="instructions"></textarea>
+</div>
+
+<div>
+    Chef: 
+
+    <select name="theChef">
+        {{#each chefs}}
+            <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+</div>
+
+<button>Save</button>
+
+</form>

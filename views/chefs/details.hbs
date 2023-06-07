@@ -1,0 +1,17 @@
+<h1>Chef Details</h1>
+
+<h3>{{theChef.name}}</h3>
+<h4>Experience: {{theChef.experience}}</h4>
+<h5>Specialty: {{theChef.specialty}}</h5>
+
+<img src="{{theChef.img}}" style="height: 200px">
+
+<div>
+    <h3>Recipes</h3>
+
+    {{#each recipes}}
+        <p>
+            {{this.name}}
+        </p>
+    {{/each}}
+</div>

@@ -1,0 +1,17 @@
+<h1>Chefs Page</h1>
+{{#if theUserObject}}
+
+<h3> Welcome, {{theUserObject.username}} </h3>
+{{/if}}
+{{#each chefs}}
+<div>
+<hr>
+<a href="/chefs/{{this._id}}">
+<h3>{{this.name}}</h3>
+</a>
+<h5>Hometown: {{this.hometown}}</h5>
+<p>Age: {{this.age}}</p>
+    <img src="{{this.img}}" style="height: 200px">
+    <hr>
+</div>
+{{/each}}

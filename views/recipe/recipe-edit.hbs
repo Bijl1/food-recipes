@@ -1,0 +1,47 @@
+<h1>Edit This Recipe</h1>
+
+<form action="/recipe/{{theRecipe._id}}/update" method="POST">
+
+<div>
+    Name: 
+    <input type="text" name="recipeName" value="{{theRecipe.recipeName}}">
+</div>
+
+<div>
+    Type: 
+    <input type="text" name="recipeType" value="{{theRecipe.recipeType}}">
+</div>
+
+<div>
+    Image: 
+    <input type="text" name="img" value="{{theRecipe.img}}">
+</div>
+
+<div>
+    Chef: 
+    <select name="theChef">
+        {{#each chefs}}
+            {{#if this._id === theRecipe.chef._id}}
+                <option value="{{this._id}}" selected>{{this.name}}</option>
+            {{else}}
+                <option value="{{this._id}}">{{this.name}}</option>
+            {{/if}}
+        {{/each}}
+    </select>
+</div>
+
+<div>
+    Ingredients: 
+    {{#each theRecipe.ingredients}}
+    <input type="text" name="ingredients" value="{{this}}">
+    {{/each}}
+</div>
+
+<div>
+    Instructions: 
+    <textarea name="instructions">{{theRecipe.instructions}}</textarea>
+</div>
+
+<button>Save</button>
+
+</form>
