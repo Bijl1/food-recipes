@@ -3,11 +3,11 @@ const router = express.Router();
 const User = require("../models/User");
 const bcryptjs = require('bcryptjs');
 
-router.get("/users/signup", (req, res, next)=>{
-    res.render("recipes/signup");
+router.get("/signup", (req, res, next)=>{
+    res.render("users/signup");
 });
 
-router.post("/users/signup", (req, res, next)=>{
+router.post("/signup", (req, res, next)=>{
     const numberOfRounds = 10;
     const username = req.body.username;
     const password = req.body.password;
@@ -24,7 +24,7 @@ router.post("/users/signup", (req, res, next)=>{
 });
 
 router.get("/login", (req, res)=>{
-    res.render("recipes/login");
+    res.render("users/login");
 });
 
 router.post("/login", (req, res)=>{
