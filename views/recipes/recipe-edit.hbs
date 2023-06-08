@@ -1,47 +1,45 @@
 <h1>Edit This Food Recipe</h1>
 
-<form action="/recipes/{{theRecipe._id}}/update" method="POST">
+<form action="/recipes/{{recipe._id}}/update" method="POST">
+  <div>
+    Recipe Name:
+    <input type="text" name="recipeName" value="{{recipe.recipeName}}">
+  </div>
 
-<div>
-    Recipe Name: 
-    <input type="text" name="recipeName" value="{{theRecipe.recipeName}}">
-</div>
+  <div>
+    Recipe Type:
+    <input type="text" name="recipeType" value="{{recipe.recipeType}}">
+  </div>
 
-<div>
-    Recipe Type: 
-    <input type="text" name="recipeType" value="{{theRecipe.recipeType}}">
-</div>
+  <div>
+    Image:
+    <input type="text" name="img" value="{{recipe.img}}">
+  </div>
 
-<div>
-    Image: 
-    <input type="text" name="img" value="{{theRecipe.img}}">
-</div>
-
-<div>
-    Chef: 
-    <select name="chef">
-        {{#each chefs}}
-            {{#ifEquals this._id theRecipe.chef}}
-                <option value="{{this._id}}" selected>{{this.name}}</option>
-            {{else}}
-                <option value="{{this._id}}">{{this.name}}</option>
-            {{/ifEquals}}
-        {{/each}}
+  <div>
+    Chef:
+    <select name="theChef">
+      {{#each chefs}}
+        {{#if this._id.equals recipe.chef._id}}
+          <option value="{{this._id}}" selected>{{this.name}}</option>
+        {{else}}
+          <option value="{{this._id}}">{{this.name}}</option>
+        {{/if}}
+      {{/each}}
     </select>
-</div>
+  </div>
 
-<div>
-    Ingredients: 
-    {{#each theRecipe.ingredients}}
-    <input type="text" name="ingredients" value="{{this}}">
+  <div>
+    Ingredients:
+    {{#each recipe.ingredients}}
+      <input type="text" name="ingredients" value="{{this}}">
     {{/each}}
-</div>
+  </div>
 
-<div>
-    Instructions: 
-    <textarea name="instructions">{{theRecipe.instructions}}</textarea>
-</div>
+  <div>
+    Instructions:
+    <textarea name="instructions">{{recipe.instructions}}</textarea>
+  </div>
 
-<button>Save</button>
-
+  <button>Save</button>
 </form>

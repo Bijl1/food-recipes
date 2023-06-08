@@ -10,6 +10,6 @@ const recipeSchema = new Schema({
     instructions: String
 });
 
-const FoodRecipe = mongoose.model('FoodRecipe', recipeSchema);
+const Recipe = mongoose.model('Recipe', recipeSchema);
 
-module.exports = FoodRecipe;
+module.exports = Recipe;

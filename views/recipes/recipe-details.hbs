@@ -1,30 +1,28 @@
 <h1>Food Recipe Details</h1>
 
-<h2>{{theRecipe.recipeName}}</h2>
-<h3>Recipe Type: {{theRecipe.recipeType}}</h3>
-<img src="{{theRecipe.img}}" style="width: 300px">
-<div>
-    Chef: {{theRecipe.chef.name}}
-</div>
+<h2>{{recipe.recipeName}}</h2>
+<h3>Recipe Type: {{recipe.recipeType}}</h3>
+<img src="{{recipe.img}}" style="width: 300px">
 
 <hr>
 <h4>Ingredients</h4>
-{{#each theRecipe.ingredients}}
-    <p>
-        {{this}}
-    </p>    
+{{#each recipe.ingredients}}
+    <p>{{this}}</p>    
 {{/each}}
 <hr>
 
 <h4>Instructions</h4>
-<p>{{theRecipe.instructions}}</p>
-<hr>
+<p>{{recipe.instructions}}</p>
+
+<div>
+    Chef: {{recipe.chef.name}}
+</div>
 
 <br>
 
-<a href="/recipes/{{theRecipe._id}}/edit">Edit This Recipe</a>
+<a href="/recipes/{{recipe._id}}/edit">Edit This Recipe</a>
 
 <br><br><br>
-<form action="/recipes/delete/{{theRecipe._id}}" method="POST">
+<form action="/recipes/delete/{{recipe._id}}" method="POST">
     <button>Delete This Recipe</button>
 </form>

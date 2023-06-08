@@ -3,14 +3,10 @@ const router = express.Router();
 const Chef = require("../models/Chef");
 const Recipe = require("../models/Recipe");
 
-
 router.get("/", (req, res) => {
-    // even though the route looks like it's just "/"
-    // it's actually "/chefs"
-    // because I have attached a "/chefs" prefix to every single route in this file
     Chef.find()
-        .then((allChefs) => {
-            res.render("chefs/chefs-page", { chefs: allChefs });
+        .then((allTheChefs) => {
+            res.render("chefs/chefs-page", { chefs: allTheChefs });
         });
 });
 
@@ -21,8 +17,8 @@ router.get("/new", (req, res) => {
 router.post("/create", (req, res) => {
     Chef.create({
         name: req.body.chefName,
-        experience: req.body.chefExperience,
         specialty: req.body.chefSpecialty,
+        experience: req.body.chefExperience,
         img: req.body.chefImg
     }).then(() => {
         res.redirect("/chefs");

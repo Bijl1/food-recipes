@@ -7,6 +7,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
 app.use(express.static('public'));
+
 app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
 
@@ -16,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-mongoose.connect('mongodb://localhost/RecipeApp')
+mongoose.connect('mongodb://localhost/foodRecipesApp')
     .then(() => {
         console.log("connected to database");
     })
@@ -38,7 +39,7 @@ app.use(
             maxAge: 60000
         },
         store: MongoStore.create({
-            mongoUrl: 'mongodb://localhost/RecipeApp'
+            mongoUrl: 'mongodb://localhost/foodRecipesApp'
         })
     })
 );
@@ -53,7 +54,7 @@ app.get("/", (req, res) => {
 });
 
 const recipeRoutes = require("./routes/recipe-routes");
-app.use("/recipes", recipeRoutes);
+app.use("/", recipeRoutes);
 
 const chefRoutes = require("./routes/chef-routes");
 app.use("/chefs", chefRoutes);
