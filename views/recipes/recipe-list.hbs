@@ -1,12 +1,64 @@
-<h1>Food Recipes</h1>
+<style>
+  /* Existing styles */
+  body {
+    background-image: url("https://wallpapers.com/images/hd/best-kitchen-background-wqnxsargcqksauu2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: hsl(206, 70%, 8%);
+  }
 
-{{#each recipes}}
-  <hr>
-  <div>
-    <a href="/recipes/{{this._id}}">
-      <h2>{{this.recipeName}}</h2>
-    </a>
-    <h5>Recipe Type: {{this.recipeType}}</h5>
-  </div>
-  <hr>
-{{/each}}
+  .recipe-list-container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  h5 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #007bff;
+  }
+
+  a:hover {
+    color: #0056b3;
+  }
+</style>
+
+<div class="recipe-list-container">
+  <h1>Food Recipes</h1>
+
+  {{#each recipes}}
+    <hr>
+    <div>
+      <a href="/recipes/{{this._id}}">
+        <h2>{{this.recipeName}}</h2>
+      </a>
+      <h5>Recipe Type: {{this.recipeType}}</h5>
+    </div>
+    <hr>
+  {{/each}}
+</div>
