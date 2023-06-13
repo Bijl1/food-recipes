@@ -1,41 +1,99 @@
-<h1>Add a Food Recipe to the Database</h1>
+<style>
+  /* Existing styles */
+  body {
+    background-image: url("https://wallpapers.com/images/hd/best-kitchen-background-wqnxsargcqksauu2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: hsl(206, 70%, 8%);
+  }
 
-<form action="/recipes/create" method="POST">
-  <div>
-    Recipe Name:
-    <input type="text" name="recipeName">
+  .form-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0069d9;
+  }
+
+  /* New styles for the heading */
+  .form-heading {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+</style>
+
+<form action="/recipes/create" method="POST" class="form-container">
+  <h1 class="form-heading">Add a Food Recipe to the Database</h1>
+
+  <div class="form-group">
+    <label for="recipeName">Recipe Name:</label>
+    <input type="text" id="recipeName" name="recipeName">
   </div>
 
-  <div>
-    Recipe Type:
-    <input type="text" name="recipeType">
+  <div class="form-group">
+    <label for="recipeType">Recipe Type:</label>
+    <input type="text" id="recipeType" name="recipeType">
   </div>
 
-  <div>
-    Image:
-    <input type="text" name="img">
+  <div class="form-group">
+    <label for="img">Image:</label>
+    <input type="text" id="img" name="img">
   </div>
 
-  <div>
-    Chef:
-    <select name="theChef">
+  <div class="form-group">
+    <label for="theChef">Chef:</label>
+    <select id="theChef" name="theChef">
       {{#each chefs}}
       <option value="{{this._id}}">{{this.name}}</option>
       {{/each}}
     </select>
   </div>
 
-  <div>
-    Ingredients:
-    <input type="text" name="ingredients">
-    <input type="text" name="ingredients">
+  <div class="form-group">
+    <label for="ingredients">Ingredients:</label>
+    <input type="text" id="ingredients" name="ingredients">
+    <input type="text" id="ingredients" name="ingredients">
   </div>
 
-  <div>
-    Instructions:
-    <textarea name="instructions"></textarea>
+  <div class="form-group">
+    <label for="instructions">Instructions:</label>
+    <textarea id="instructions" name="instructions"></textarea>
   </div>
 
-  <button>Save</button>
+  <button class="btn btn-primary">Save</button>
 </form>
-
