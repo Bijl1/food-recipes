@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const cookieParser = require("cookie-parser");
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+require('dotenv').config();
 
 app.use(express.static('public'));
 
@@ -17,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-mongoose.connect('mongodb://localhost/foodRecipesApp')
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log("connected to database");
     })
@@ -39,7 +40,7 @@ app.use(
             maxAge: 60000
         },
         store: MongoStore.create({
-            mongoUrl: 'mongodb://localhost/foodRecipesApp'
+            mongoUrl: process.env.MONGODB_URI
         })
     })
 );
@@ -62,4 +63,5 @@ app.use("/chefs", chefRoutes);
 const userRoutes = require("./routes/user-routes");
 app.use("/", userRoutes);
 
-app.listen(3000, () => console.log('My first app listening on port 3000!'));
+app.listen(process.env.PORT, () => console.log('My first app listening on port ENV!'));
+
