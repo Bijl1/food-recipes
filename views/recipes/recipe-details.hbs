@@ -20,7 +20,9 @@
 
 <br>
 
-<a href="/recipes/{{recipe._id}}/edit">Edit This Recipe</a>
+<form action="/recipes/edit/{{recipe._id}}" method="GET">
+    <button>Edit This Recipe</button>
+</form>
 
 <br><br><br>
 <form action="/recipes/delete/{{recipe._id}}" method="POST">

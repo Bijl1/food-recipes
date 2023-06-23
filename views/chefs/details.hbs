@@ -1,16 +1,85 @@
-<h1>Chef Details</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
 
-<h3>{{theChef.name}}</h3>
-<h4>Experience: {{theChef.experience}}</h4>
-<h5>Specialty: {{theChef.specialty}}</h5>
+        h1, h2, h3, h4, h5 {
+            color: #333333;
+        }
 
-<img src="{{theChef.img}}" style="height: 200px">
+        img {
+            max-width: 300px;
+        }
 
-<div>
-    <h3>Recipes</h3>
-    {{#each recipes}}
-        <p>
-            {{this.recipeName}}
-        </p>
-    {{/each}}
-</div>
+        .chef-details {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-name {
+            margin-top: 30px;
+        }
+
+        .chef-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .recipe-list {
+            margin-top: 20px;
+        }
+
+        .recipe-list p {
+            margin-bottom: 5px;
+        }
+
+        .edit-button,
+        .delete-button {
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .edit-button:hover,
+        .delete-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="chef-details">
+        <h1>Chef Details</h1>
+        <h3>{{theChef.name}}</h3>
+        <h4>Experience: {{theChef.experience}}</h4>
+        <h5>Specialty: {{theChef.specialty}}</h5>
+        <div class="chef-image">
+            <img src="{{theChef.img}}" style="height: 200px">
+        </div>
+        <div class="recipe-list">
+            <h3>Recipes</h3>
+            {{#each recipes}}
+                <p>{{this.recipeName}}</p>
+            {{/each}}
+        </div>
+        <form action="/chefs/edit/{{theChef._id}}" method="GET">
+            <button class="edit-button">Edit Chef</button>
+        </form>
+        <form action="/chefs/delete/{{theChef._id}}" method="POST">
+            <button class="delete-button">Delete Chef</button>
+        </form>
+    </div>
+</body>
+</html>
