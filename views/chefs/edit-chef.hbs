@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5 {
+            color: #333333;
+        }
+
+        .edit-recipe-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .edit-recipe-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .edit-recipe-form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .edit-recipe-form textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .edit-recipe-form button {
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .edit-recipe-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+     <div class="edit-chef-form">
+        <h1>Edit Chef</h1>
+
+        <form action="/chefs/{{chef._id}}/update" method="POST">
+            <div>
+                <label for="chefName">Chef Name:</label>
+                <input type="text" id="chefName" name="chefName" value="{{chef.name}}">
+            </div>
+
+            <div>
+                <label for="chefSpecialty">Chef Specialty:</label>
+                <input type="text" id="chefSpecialty" name="chefSpecialty" value="{{chef.specialty}}">
+            </div>
+
+            <div>
+                <label for="chefImage">Chef Image:</label>
+                <input type="text" id="chefImage" name="chefImage" value="{{chef.image}}">
+            </div>
+
+            <div>
+                <label for="chefDescription">Chef Description:</label>
+                <textarea id="chefDescription" name="chefDescription">{{chef.description}}</textarea>
+            </div>
+
+            <button>Save Changes</button>
+            
+        </form>
+    </div>
+</body>
+</html>

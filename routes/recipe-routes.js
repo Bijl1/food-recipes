@@ -47,7 +47,7 @@ router.post("/recipes/delete/:id", (req, res) => {
     });
 });
 
-router.get("/recipes/:id/edit", (req, res) => {
+router.get("/recipes/edit/:id", (req, res) => {
   Recipe.findById(req.params.id)
     .then((theRecipe) => {
       Chef.find().then((allChefs) => {
@@ -60,6 +60,7 @@ router.get("/recipes/:id/edit", (req, res) => {
       });
     });
 });
+
 
 router.post("/recipes/:id/update", (req, res) => {
   Recipe.findByIdAndUpdate(req.params.id, {
