@@ -21,7 +21,7 @@ router.post("/recipes/create", (req, res) => {
   }).then(() => {
     res.redirect("/recipes");
   });
-});
+});  
 
 router.get("/recipes", (req, res) => {
   Recipe.find()
